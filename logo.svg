@@ -1,0 +1,47 @@
+<svg viewBox="0 0 512 512" width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ctd-grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="96" fill="#FFFBEB"/>
+
+  <!-- Large "C" shape for Contextd — negative space reveals a chain link / connection node -->
+  <!-- Main C arc built as a thick arc path -->
+  <!-- C outer arc: large circle minus inner arc, with gap on right -->
+  <path d="
+    M 320 120
+    A 150 150 0 1 0 320 392
+    L 320 340
+    A 98 98 0 1 1 320 172
+    Z
+  " fill="url(#ctd-grad1)"/>
+
+  <!-- Negative space: a horizontal chain-link / bracket shape cut into the C body -->
+  <!-- This reveals a small link/bracket suggesting memory connection -->
+  <!-- We overlay white shapes to carve negative space -->
+
+  <!-- Chain link negative space inside the C arm area -->
+  <rect x="246" y="232" width="82" height="48" rx="24" fill="#FFFBEB"/>
+  <!-- Inner cutout of chain link to make it a ring -->
+  <rect x="262" y="244" width="50" height="24" rx="12" fill="url(#ctd-grad1)"/>
+
+  <!-- Small dot node at center of C — memory node -->
+  <circle cx="256" cy="256" r="14" fill="#FFFBEB"/>
+  <circle cx="256" cy="256" r="7" fill="#D97706"/>
+
+  <!-- Wordmark -->
+  <text
+    x="256"
+    y="448"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-size="52"
+    font-weight="700"
+    letter-spacing="-1"
+    fill="#1C1917"
+    text-anchor="middle"
+  >Contextd</text>
+</svg>

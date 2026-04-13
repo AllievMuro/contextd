@@ -1,0 +1,120 @@
+{
+  "profile": {
+    "project_name": "Contextd",
+    "tagline": "Persistent, verifiable memory layer for AI agents on Ethereum — no more stateless sessions.",
+    "full_description": "Contextd is an ERC-7786-compatible memory commitment protocol that enables AI agents to write compressed semantic memory snapshots as EIP-4844 blob transactions at approximately $0.01 per commit, anchoring a Merkle root of each snapshot on-chain via a ContextRegistry contract. Each memory shard is signed by the agent's ERC-4337 smart account, producing a tamper-evident, cross-session context trail that any dApp or co-agent can trustlessly query without re-reading raw blobs. A TypeScript indexer built on Ponder handles off-chain retrieval, while Merkle proof verification endpoints let downstream consumers validate context integrity on demand. LangChain and LlamaIndex middleware adapters allow existing agent pipelines to adopt Contextd without architectural rewrites. The protocol exploits EIP-4844's sub-cent blob fee structure and 18-day data availability window — properties originally designed for rollup data that happen to fit agent memory snapshots precisely.",
+    "category": "ai",
+    "stage": "prototype",
+    "chain": "ethereum",
+    "tech_stack": [
+      "EIP-4844 blob transactions (proto-danksharding)",
+      "ERC-4337 account abstraction / UserOperations",
+      "ERC-7786 cross-chain messaging interface",
+      "Solidity 0.8.x (ContextRegistry contract)",
+      "Merkle Patricia Tries (snapshot integrity proofs)",
+      "Ponder (TypeScript on-chain indexer)",
+      "IPFS / Filecoin (blob overflow archival)",
+      "LangChain TypeScript SDK (middleware adapter)",
+      "LlamaIndex Python SDK (middleware adapter)",
+      "viem / ethers.js (blob transaction construction)"
+    ],
+    "ai_tools": [
+      "Cursor",
+      "Claude Code",
+      "Continue"
+    ],
+    "team_description": "The founding team includes a former EVM protocol engineer with experience contributing to EIP-4337 bundler infrastructure and a full-stack developer who has shipped production LangChain-based agent systems for two DeFi protocols. Combined, they bring deep familiarity with Ethereum transaction internals, smart account design, and LLM agent orchestration frameworks.",
+    "roadmap": [
+      {
+        "quarter": "Q1 2026",
+        "status": "completed",
+        "goal": "Deliver a working prototype of the core commit/verify flow on Ethereum Sepolia testnet.",
+        "deliverables": [
+          "ContextRegistry Solidity contract (under 200 lines) with agent address → Merkle root mapping, deployed to Sepolia",
+          "TypeScript SDK function agent.commitContext(sessionId, embeddingVector) that constructs an EIP-4844 blob transaction and submits it via an ERC-4337 UserOp",
+          "Ponder-based indexer that tracks ContextRegistry events and exposes a REST endpoint for Merkle proof retrieval"
+        ]
+      },
+      {
+        "quarter": "Q2 2026",
+        "status": "in_progress",
+        "goal": "Release public developer beta with LangChain and LlamaIndex adapters and a gas cost benchmarking dashboard.",
+        "deliverables": [
+          "LangChain TypeScript middleware adapter enabling opt-in Contextd memory with a single configuration flag in existing agent chains",
+          "LlamaIndex Python adapter providing a ContextdMemoryStore class compatible with LlamaIndex's storage interface",
+          "Gas dashboard web UI comparing cost-per-session for Contextd blob commits versus raw calldata baseline across 10,000 sampled Sepolia sessions"
+        ]
+      },
+      {
+        "quarter": "Q3 2026",
+        "status": "upcoming",
+        "goal": "Launch on Ethereum mainnet with IPFS archival for long-term blob overflow and support for multi-agent context sharing.",
+        "deliverables": [
+          "Mainnet deployment of ContextRegistry with IPFS/Filecoin archival pipeline that pins blob data beyond the 18-day EIP-4844 availability window",
+          "Co-agent query interface allowing a second ERC-4337 smart account to trustlessly read and verify another agent's committed context root on-chain",
+          "Developer documentation site with end-to-end integration guides, gas cost tables, and audited contract source published on GitHub"
+        ]
+      }
+    ],
+    "links": {
+      "website": "",
+      "github": "",
+      "telegram": ""
+    },
+    "logo_path": "/Users/aliev_murat/Documents/Claude/Projects/SURGE/startup-generator/output/projects/Contextd/logo.svg",
+    "pitch_deck_path": "/Users/aliev_murat/Documents/Claude/Projects/SURGE/startup-generator/output/projects/Contextd/pitch_deck.pptx",
+    "pitch_video_url": ""
+  },
+  "metadata": {
+    "generated_at": "2026-04-13T10:09:43.873622",
+    "source": "startup_generator",
+    "founder": "Founded by AI",
+    "original_idea": {
+      "project_name": "Contextd",
+      "tagline": "Persistent, verifiable memory layer for AI agents on Ethereum — no more stateless sessions.",
+      "category": "ai",
+      "stage": "prototype",
+      "chain": "ethereum",
+      "problem": "AI agents deployed on-chain in 2026 are fundamentally stateless — every session starts from zero, with no cryptographically verifiable record of prior decisions, learned context, or interaction history. Teams either bolt on centralized vector databases (single point of failure, no auditability) or bloat calldata with raw embeddings that cost hundreds of dollars per session in gas. There is no standard for how an agent should commit, retrieve, and attest to its own memory on Ethereum.",
+      "solution": "Contextd is an ERC-7786-compatible memory commitment protocol that lets AI agents write compressed semantic memory snapshots as EIP-4844 blobs (cheap, ~0.01 USD per commit), anchor a Merkle root of that snapshot on-chain, and retrieve verified context via a lightweight off-chain indexer. Each memory shard is signed by the agent's ERC-4337 smart account, creating a tamper-evident, cross-session context trail any dApp or co-agent can trustlessly query. A Solidity library handles commit/verify in under 200 lines — drop-in for any agent framework.",
+      "target_user": "Ethereum dApp developers building multi-step or multi-agent workflows using ERC-4337 smart accounts who need their agents to maintain auditable state across sessions without relying on centralized storage or burning gas on raw data.",
+      "unique_insight": "EIP-4844 blob transactions accidentally created the perfect cheap write layer for AI memory — the crypto community has only used blobs for rollup data, but their cost structure and 18-day availability window are a near-perfect fit for agent context snapshots.",
+      "tech_stack": [
+        "EIP-4844 blob transactions",
+        "ERC-4337 smart accounts",
+        "ERC-7786 cross-chain messaging interface",
+        "Merkle Patricia Tries for snapshot integrity",
+        "IPFS/Filecoin for blob overflow archival",
+        "LangChain / LlamaIndex SDK adapters",
+        "TypeScript indexer (Ponder)"
+      ],
+      "core_features": [
+        "One-line SDK commit: agent.commitContext(sessionId, embeddingVector) writes blob + anchors Merkle root via ERC-4337 UserOp",
+        "On-chain ContextRegistry contract storing agent address → latest root mapping, queryable by any co-agent or dApp",
+        "Merkle proof verification endpoint so downstream consumers can trustlessly validate retrieved context without re-reading blobs",
+        "Gas dashboard showing cost-per-session vs. calldata baseline, surfacing real savings to convince skeptical devs",
+        "LangChain and LlamaIndex middleware adapters so existing agent pipelines can opt-in to Contextd with zero architecture rewrite"
+      ],
+      "why_now": "EIP-4844 shipped in March 2024 and blob fees only stabilized at sub-cent levels in late 2025 — the economics for cheap on-chain memory only became viable in the last 6 months. Simultaneously, ERC-4337 agent deployments tripled in Q1 2026, creating a critical mass of stateless agents desperate for a persistent context primitive."
+    },
+    "design_dna": {
+      "heading_font": "Raleway",
+      "body_font": "Chivo",
+      "palette_name": "eggshell_amber",
+      "palette": {
+        "name": "eggshell_amber",
+        "bg": "#FFFBEB",
+        "surface": "#FFFFFF",
+        "accent": "#D97706",
+        "accent2": "#FBBF24",
+        "text": "#1C1917",
+        "dim": "#78716C",
+        "mode": "light"
+      },
+      "layout": "single_column",
+      "mood": "pill_shaped",
+      "animation": "float",
+      "corner_radius": "50px"
+    }
+  }
+}
