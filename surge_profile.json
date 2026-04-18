@@ -1,0 +1,124 @@
+{
+  "_meta": {
+    "schema_version": "1.0",
+    "source": "startup_generator",
+    "generated_from": "/sessions/adoring-laughing-ritchie/mnt/SURGE/startup-generator/output/projects/Contextd/profile.json",
+    "notes": "Field names and values match Surge Discovery create form (Full Mode, 9 steps)"
+  },
+  "project_name": "Contextd",
+  "tagline": "Persistent, verifiable memory layer for AI agents on Ethereum — no more stateless sessions.",
+  "full_description": "Contextd is an ERC-7786-compatible memory commitment protocol that enables AI agents to write compressed semantic memory snapshots as EIP-4844 blob transactions at approximately $0.01 per commit, anchoring a Merkle root of each snapshot on-chain via a ContextRegistry contract. Each memory shard is signed by the agent's ERC-4337 smart account, producing a tamper-evident, cross-session context trail that any dApp or co-agent can trustlessly query without re-reading raw blobs. A TypeScript indexer",
+  "category": "AI Agents & Automation",
+  "stage": "Prototype",
+  "logo": {
+    "local_path": "/Users/aliev_murat/Documents/Claude/Projects/SURGE/startup-generator/output/projects/Contextd/logo.svg",
+    "url": "https://github.com/AllievMuro/contextd/raw/main/logo.svg",
+    "format": "svg",
+    "note": "Surge requires PNG or JPG. Convert SVG → PNG before upload."
+  },
+  "ai_tools": [
+    "Cursor",
+    "Claude Code",
+    "Continue"
+  ],
+  "tech_stack": {
+    "languages": [
+      "Solidity 0.8.x (ContextRegistry contract)"
+    ],
+    "dev_tools": [
+      "EIP-4844 blob transactions (proto-danksharding)",
+      "ERC-4337 account abstraction / UserOperations",
+      "ERC-7786 cross-chain messaging interface",
+      "Merkle Patricia Tries (snapshot integrity proofs)",
+      "Ponder (TypeScript on-chain indexer)",
+      "IPFS / Filecoin (blob overflow archival)",
+      "LangChain TypeScript SDK (middleware adapter)",
+      "LlamaIndex Python SDK (middleware adapter)",
+      "viem / ethers.js (blob transaction construction)"
+    ]
+  },
+  "pitch_deck": {
+    "local_path": "/Users/aliev_murat/Documents/Claude/Projects/SURGE/startup-generator/output/projects/Contextd/pitch_deck.pptx",
+    "url": "https://github.com/AllievMuro/contextd/raw/main/pitch_deck.pptx",
+    "format": "pptx",
+    "note": "Surge requires PDF. Convert PPTX → PDF before upload."
+  },
+  "whitepaper": {
+    "local_path": "",
+    "url": ""
+  },
+  "pitch_video": {
+    "url": "",
+    "source": "youtube",
+    "note": "Must be public/unlisted YouTube URL. Max 800 seconds."
+  },
+  "links": {
+    "website": "https://AllievMuro.github.io/contextd",
+    "github": "https://github.com/AllievMuro/contextd",
+    "telegram": "",
+    "x_twitter": ""
+  },
+  "team_description": "The founding team includes a former EVM protocol engineer with experience contributing to EIP-4337 bundler infrastructure and a full-stack developer who has shipped production LangChain-based agent systems for two DeFi protocols. Combined, they bring deep familiarity with Ethereum transaction internals, smart account design, and LLM agent orchestration frameworks.",
+  "team_members": [],
+  "roadmap": [
+    {
+      "quarter": "Q1 2026",
+      "status": "Completed",
+      "goal": "Deliver a working prototype of the core commit/verify flow on Ethereum Sepolia testnet.",
+      "deliverables": [
+        "ContextRegistry Solidity contract (under 200 lines) with agent address → Merkle root mapping, deployed to Sepolia",
+        "TypeScript SDK function agent.commitContext(sessionId, embeddingVector) that constructs an EIP-4844 blob transaction and submits it via an ERC-4337 UserOp",
+        "Ponder-based indexer that tracks ContextRegistry events and exposes a REST endpoint for Merkle proof retrieval"
+      ]
+    },
+    {
+      "quarter": "Q2 2026",
+      "status": "In Progress",
+      "goal": "Release public developer beta with LangChain and LlamaIndex adapters and a gas cost benchmarking dashboard.",
+      "deliverables": [
+        "LangChain TypeScript middleware adapter enabling opt-in Contextd memory with a single configuration flag in existing agent chains",
+        "LlamaIndex Python adapter providing a ContextdMemoryStore class compatible with LlamaIndex's storage interface",
+        "Gas dashboard web UI comparing cost-per-session for Contextd blob commits versus raw calldata baseline across 10,000 sampled Sepolia sessions"
+      ]
+    },
+    {
+      "quarter": "Q3 2026",
+      "status": "Upcoming",
+      "goal": "Launch on Ethereum mainnet with IPFS archival for long-term blob overflow and support for multi-agent context sharing.",
+      "deliverables": [
+        "Mainnet deployment of ContextRegistry with IPFS/Filecoin archival pipeline that pins blob data beyond the 18-day EIP-4844 availability window",
+        "Co-agent query interface allowing a second ERC-4337 smart account to trustlessly read and verify another agent's committed context root on-chain",
+        "Developer documentation site with end-to-end integration guides, gas cost tables, and audited contract source published on GitHub"
+      ]
+    }
+  ],
+  "revenue_sources": {
+    "stripe": null,
+    "paypal": null,
+    "shopify": null
+  },
+  "user_data": {
+    "google_analytics": null,
+    "mixpanel": null
+  },
+  "publish_readiness": {
+    "required": {
+      "logo": true,
+      "project_name": true,
+      "tagline": true,
+      "category": true,
+      "full_description": true,
+      "team": true,
+      "pitch_deck": true,
+      "pitch_video": false
+    },
+    "optional": {
+      "tech_stack": true,
+      "roadmap": true,
+      "socials": true,
+      "revenue_sources": false,
+      "user_data": false
+    },
+    "summary": "Required: 7/8, Optional: 3/5"
+  }
+}
